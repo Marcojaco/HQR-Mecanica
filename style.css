@@ -205,42 +205,34 @@ SEÇÃO CLIENTES (CARROSSEL)
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     scroll-snap-align: start;
     border: 1px solid #333;
+    /* Ajuste para garantir altura mínima sem imagem */
+    min-height: 250px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px); /* Efeito sutil de elevação */
     box-shadow: 0 8px 25px rgba(255, 107, 0, 0.2);
     border-color: #ff6b00;
 }
 
-.card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.testimonial-card:hover .card-image img {
-    transform: scale(1.1);
-}
-
+/* Conteúdo do Card (Agora ocupa tudo) */
 .card-content {
-    padding: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .feedback-text {
     font-size: 0.95rem;
     line-height: 1.6;
     color: #cccccc;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-style: italic;
+    flex-grow: 1; /* Faz o texto ocupar o espaço disponível */
 }
 
 .client-name {
@@ -250,6 +242,7 @@ SEÇÃO CLIENTES (CARROSSEL)
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-top: auto; /* Empurra o nome para o final */
 }
 
 .client-name::before {
@@ -541,10 +534,6 @@ RESPONSIVIDADE (MEDIA QUERIES)
 
     .testimonial-card {
         width: 260px;
-    }
-
-    .card-image {
-        height: 180px;
     }
 
     .social-buttons {
